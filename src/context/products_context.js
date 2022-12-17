@@ -17,10 +17,14 @@ const initialState = {
 	isSidebarOpen: false,
 };
 
+console.log('initialState 1: ', initialState);
+
 const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
+
+	console.log('initialState 2: ', initialState);
 
 	const openSidebar = () => {
 		dispatch({ type: SIDEBAR_OPEN });
@@ -32,6 +36,7 @@ export const ProductsProvider = ({ children }) => {
 
 	useEffect(() => {
 		openSidebar();
+		console.log('initialState 3: ', initialState);
 	}, []);
 
 	return (

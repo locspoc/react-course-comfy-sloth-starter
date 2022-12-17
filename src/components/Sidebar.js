@@ -9,16 +9,30 @@ import CartButtons from './CartButtons';
 import { useUserContext } from '../context/user_context';
 
 const Sidebar = () => {
-	const isOpen = false;
+	// const isOpen = false;
 	// console.log('links: ', links);
-	const data = useProductsContext();
-	console.log('data: ', data);
+	const { isSidebarOpen, closeSidebar } = useProductsContext();
+	console.log('isSidebarOpen: ', isSidebarOpen);
+	console.log('closeSidebar: ', closeSidebar);
+
+	// const data = useProductsContext();
+	// console.log('data: ', data);
+	// console.log('data.isSidebarOpen: ', data.isSidebarOpen);
+
 	return (
 		<SidebarContainer>
-			<aside className={`${isOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
+			<aside
+				className={`${
+					isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'
+				}`}
+			>
 				<div className="sidebar-header">
 					<img src={logo} className="logo" alt="Comfy Sloth" />
-					<button className="close-btn" type="button"></button>
+					<button
+						className="close-btn"
+						type="button"
+						onClick={closeSidebar}
+					></button>
 					<FaTimes />
 				</div>
 				<ul className="links">
@@ -28,12 +42,16 @@ const Sidebar = () => {
 						// console.log('url: ', url);
 						return (
 							<li key={id}>
-								<Link to={url}>{text}</Link>
+								<Link to={url} onClick={closeSidebar}>
+									{text}
+								</Link>
 							</li>
 						);
 					})}
 					<li>
-						<Link to="/checkout">Checkout</Link>
+						<Link to="/checkout" onClick={closeSidebar}>
+							Checkout
+						</Link>
 					</li>
 				</ul>
 				<CartButtons />
