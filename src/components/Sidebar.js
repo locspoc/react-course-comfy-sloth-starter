@@ -12,8 +12,10 @@ const Sidebar = () => {
 	// const isOpen = false;
 	// console.log('links: ', links);
 	const { isSidebarOpen, closeSidebar } = useProductsContext();
+	// const upc = useProductsContext();
 	console.log('isSidebarOpen: ', isSidebarOpen);
 	console.log('closeSidebar: ', closeSidebar);
+	// console.log('upc: ', upc);
 
 	// const data = useProductsContext();
 	// console.log('data: ', data);
@@ -32,8 +34,9 @@ const Sidebar = () => {
 						className="close-btn"
 						type="button"
 						onClick={closeSidebar}
-					></button>
-					<FaTimes />
+					>
+						<FaTimes />
+					</button>
 				</div>
 				<ul className="links">
 					{links.map(({ id, text, url }) => {

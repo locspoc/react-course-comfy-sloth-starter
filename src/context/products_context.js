@@ -34,11 +34,6 @@ export const ProductsProvider = ({ children }) => {
 		dispatch({ type: SIDEBAR_CLOSE });
 	};
 
-	useEffect(() => {
-		openSidebar();
-		console.log('initialState 3: ', initialState);
-	}, []);
-
 	return (
 		<ProductsContext.Provider
 			value={{ ...state, openSidebar, closeSidebar }}
