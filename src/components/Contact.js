@@ -18,11 +18,16 @@ const Contact = () => {
 						non proident, sunt in culpa qui officia deserunt mollit
 						anim id est laborum.
 					</p>
-					<form className="contact-form">
+					<form
+						className="contact-form"
+						action="https://formspree.io/f/xjvdbebp"
+						method="POST"
+					>
 						<input
 							type="email"
 							className="form-input"
 							placeholder="enter email"
+							name="_replyto"
 						></input>
 						<button type="submit" className="submit-btn">
 							subscribe
