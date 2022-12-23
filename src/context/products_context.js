@@ -15,16 +15,20 @@ import {
 
 const initialState = {
 	isSidebarOpen: false,
+	products_loading: false,
+	products_error: false,
+	products: [],
+	featured_products: [],
 };
 
-console.log('initialState 1: ', initialState);
+// console.log('initialState 1: ', initialState);
 
 const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
-	console.log('initialState 2: ', initialState);
+	// console.log('initialState 2: ', initialState);
 
 	const openSidebar = () => {
 		dispatch({ type: SIDEBAR_OPEN });
@@ -33,6 +37,15 @@ export const ProductsProvider = ({ children }) => {
 	const closeSidebar = () => {
 		dispatch({ type: SIDEBAR_CLOSE });
 	};
+
+	const fetchProducts = async (url) => {
+		const response = await axios.get(url);
+		console.log('response: ', response);
+	};
+
+	useEffect(() => {
+		fetchProducts(url);
+	}, []);
 
 	return (
 		<ProductsContext.Provider

@@ -13,8 +13,8 @@ const Sidebar = () => {
 	// console.log('links: ', links);
 	const { isSidebarOpen, closeSidebar } = useProductsContext();
 	// const upc = useProductsContext();
-	console.log('isSidebarOpen: ', isSidebarOpen);
-	console.log('closeSidebar: ', closeSidebar);
+	// console.log('isSidebarOpen: ', isSidebarOpen);
+	// console.log('closeSidebar: ', closeSidebar);
 	// console.log('upc: ', upc);
 
 	// const data = useProductsContext();
