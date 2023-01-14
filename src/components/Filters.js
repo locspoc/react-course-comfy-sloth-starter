@@ -40,7 +40,7 @@ const Filters = () => {
 							onChange={updateFilters}
 						/>
 					</div>
-					{/** end search input */}
+					{/** end of search input */}
 					{/** categories */}
 					<div className="form-control">
 						<h5>category</h5>
@@ -64,7 +64,26 @@ const Filters = () => {
 							})}
 						</div>
 					</div>
-					{/** end categories */}
+					{/** end of categories */}
+					{/** companies */}
+					<div className="form-control">
+						<h5>company</h5>
+						<select
+							name="company"
+							value={company}
+							onChange={updateFilters}
+							className="company"
+						>
+							{companies.map((c, index) => {
+								return (
+									<option key={index} value={c}>
+										{c}
+									</option>
+								);
+							})}
+						</select>
+					</div>
+					{/** end companies */}
 				</form>
 			</div>
 		</Wrapper>
