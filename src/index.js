@@ -8,18 +8,27 @@ import { FilterProvider } from './context/filter_context';
 import { CartProvider } from './context/cart_context';
 import { UserProvider } from './context/user_context';
 import { Auth0Provider } from '@auth0/auth0-react';
-
-// comfy-sloth.au.auth0.com
-// LxZeNghosds8q7Smv9YRpHW8P5no1UfW
+export const domain = `${process.env.REACT_APP_AUTH0_DOMAIN}`;
+export const clientId = `${process.env.REACT_APP_AUTH0_CLIENTID}`;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-	<ProductsProvider>
-		<FilterProvider>
-			<CartProvider>
-				<App />
-			</CartProvider>
-		</FilterProvider>
-	</ProductsProvider>
+	<Auth0Provider
+		domain={domain}
+		clientId={clientId}
+		authorizationParams={{
+			redirect_uri: window.location.origin,
+		}}
+		cacheLocation="localstorage"
+	>
+		<ProductsProvider>
+			<FilterProvider>
+				<CartProvider>
+					<App />
+				</CartProvider>
+			</FilterProvider>
+		</ProductsProvider>
+	</Auth0Provider>,
+	document.getElementById('root')
 );
