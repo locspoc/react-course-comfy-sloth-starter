@@ -9,6 +9,9 @@ import { CartProvider } from './context/cart_context';
 import { UserProvider } from './context/user_context';
 import { Auth0Provider } from '@auth0/auth0-react';
 
+// comfy-sloth.au.auth0.com
+// LxZeNghosds8q7Smv9YRpHW8P5no1UfW
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
