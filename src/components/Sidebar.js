@@ -9,17 +9,8 @@ import CartButtons from './CartButtons';
 import { useUserContext } from '../context/user_context';
 
 const Sidebar = () => {
-	// const isOpen = false;
-	// console.log('links: ', links);
 	const { isSidebarOpen, closeSidebar } = useProductsContext();
-	// const upc = useProductsContext();
-	// console.log('isSidebarOpen: ', isSidebarOpen);
-	// console.log('closeSidebar: ', closeSidebar);
-	// console.log('upc: ', upc);
-
-	// const data = useProductsContext();
-	// console.log('data: ', data);
-	// console.log('data.isSidebarOpen: ', data.isSidebarOpen);
+	const { myUser } = useUserContext();
 
 	return (
 		<SidebarContainer>
@@ -40,9 +31,6 @@ const Sidebar = () => {
 				</div>
 				<ul className="links">
 					{links.map(({ id, text, url }) => {
-						// console.log('id: ', id);
-						// console.log('text: ', text);
-						// console.log('url: ', url);
 						return (
 							<li key={id}>
 								<Link to={url} onClick={closeSidebar}>
@@ -51,11 +39,13 @@ const Sidebar = () => {
 							</li>
 						);
 					})}
-					<li>
-						<Link to="/checkout" onClick={closeSidebar}>
-							Checkout
-						</Link>
-					</li>
+					{myUser && (
+						<li>
+							<Link to="/checkout" onClick={closeSidebar}>
+								Checkout
+							</Link>
+						</li>
+					)}
 				</ul>
 				<CartButtons />
 			</aside>
