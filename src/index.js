@@ -29,6 +29,6 @@ root.render(
 				</FilterProvider>
 			</ProductsProvider>
 		</UserProvider>
-	</Auth0Provider>,
-	document.getElementById('root')
+	</Auth0Provider>
+	// document.getElementById('root')
 );
